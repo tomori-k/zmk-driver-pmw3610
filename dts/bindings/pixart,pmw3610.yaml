@@ -11,13 +11,11 @@ properties:
   motion-gpios:
     type: phandle-array
     required: true
-    description:
-      GPIO connected to the motion pin, active low.
+    description: GPIO connected to the motion pin, active low.
 
   reset-gpios:
     type: phandle-array
-    description:
-      GPIO connected to the reset pin, active low.
+    description: GPIO connected to the reset pin, active low.
 
   zephyr,axis-x:
     type: int
@@ -62,3 +60,9 @@ properties:
     description: |
       Enable the "smart mode" algorithm as described in the device datasheet.
       This should improve sensor tracking across a wider range of surfaces.
+
+  report-rate-ms:
+    type: int
+    description: |
+      The report rate in milliseconds. If specified, the driver will limit
+      reports to this rate by buffering motion data as needed.
